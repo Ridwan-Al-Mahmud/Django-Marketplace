@@ -47,8 +47,9 @@
     <button type="button" data-index="{{ product.id }}" class="btn btn-secondary update-cart">Update</button>
     <button type="button" data-index="{{ product.id }}" class="btn btn-danger delete-cart">Remove</button>
 </div>
-</div>      
+</div><br/></br/>     
     {% endfor %}
+    <h3>Total: ${{ totals }}</h3><br/><br/><br/>
     {% else %}
     <p>Your cart is empty...</p>
     <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>

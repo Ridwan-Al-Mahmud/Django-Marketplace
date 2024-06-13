@@ -5,9 +5,19 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
                         <li class="nav-item"><a class="nav-link active" aria-current="page" href="{%url 'index'%}">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'search'%}">Search</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'about'%}">About</a></li>
             {% if user.is_authenticated %}
-                <li class="nav-item"><a class="nav-link" href="{% url 'logout'%}">Logout</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'logout'%}">Logout</a></li>   
+                <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Profile</a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="{% url 'update_user' %}">User profile</a></li>
+                                <li><hr class="dropdown-divider" /></li>
+                                <li><a class="dropdown-item" href="{% url 'update_info' %}">User info</a></li>
+                            </ul>
+                </li>
+                        
             {% else %}
                 <li class="nav-item"><a class="nav-link" href="{% url 'login'%}">Login</a></li>
                 <li class="nav-item"><a class="nav-link" href="{% url 'register'%}">Register</a></li>
@@ -16,7 +26,7 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Categories</a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="{% url 'index' %}">All Products</a></li>
+                                <li><a class="dropdown-item" href="{% url 'category_summary' %}">All Products</a></li>
                                 <li><hr class="dropdown-divider" /></li>
                                 <li><a class="dropdown-item" href="{% url 'category' 'Books' %}">Books</a></li>
                                 <li><a class="dropdown-item" href="{% url 'category' 'Electronics' %}">Electronics</a></li>
